@@ -1,3 +1,4 @@
+import 'package:alquran/ui/alqurandetail/detail_screee.dart';
 import 'package:alquran/ui/dashboard/dashboard_screen.dart';
 import 'package:alquran/ui/splashscreen/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,8 @@ class Routes {
 
       case DashboardScreen.routeName:
         return MaterialPageRoute(builder: (_) => const DashboardScreen());
+      case DetaiScreen.routeName:
+        return MaterialPageRoute(builder: (_) => const DetaiScreen());
     }
   }
 }
