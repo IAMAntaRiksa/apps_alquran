@@ -1,3 +1,4 @@
+import 'package:alquran/data/model/alquranDetailModel/ayat.dart';
 import 'package:alquran/data/model/list_response.dart';
 import 'package:alquran/data/model/quran_surah_response.dart';
 import 'package:dio/dio.dart';
@@ -32,5 +33,25 @@ class ApiClientResponse {
       }
     }
     return dataHasil;
+  }
+
+  Future<List<Ayat>?>? fetchDetailData(String id,
+      {int? surat = 1, int? ayatSurah = 1}) async {
+    Ayat? dataHasils;
+    try {
+      Response response =
+          await _dio.get('/quran/format/json/surat/$surat/ayat/$ayatSurah');
+
+      Ayat ayat = Ayat.fromJson(response.data);
+      dataHasils = ayat;
+    } on DioError catch (e) {
+      if (e.response != null) {
+        print(
+            'Error(fetchData): ${e.response!.statusCode} - ${e.response!.data}');
+      } else {
+        print('Something went wrong: ${e.message}');
+      }
+    }
+    dataHasils;
   }
 }

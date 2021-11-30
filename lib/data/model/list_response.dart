@@ -9,6 +9,7 @@ part 'list_response.g.dart';
 class ListResponse<T> {
   @JsonKey(name: 'hasil')
   final List<T> hasil;
+  
   ListResponse({
     required this.hasil,
   });

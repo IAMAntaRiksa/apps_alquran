@@ -11,8 +11,12 @@ class Routes {
 
       case DashboardScreen.routeName:
         return MaterialPageRoute(builder: (_) => const DashboardScreen());
+
       case DetaiScreen.routeName:
-        return MaterialPageRoute(builder: (_) => const DetaiScreen());
+        var alquranArgs = settings.arguments as ArgumentsDetail;
+        return MaterialPageRoute(
+          builder: (_) => DetaiScreen(args: alquranArgs),
+        );
     }
   }
 }

@@ -45,14 +45,17 @@ class HomeVertialItemView extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return HomeVerticalItem(
                         onTap: () {
-                          Navigator.pushNamed(context, DetaiScreen.routeName);
+                          Navigator.pushNamed(context, DetaiScreen.routeName,
+                              arguments: ArgumentsDetail(
+                                  alquranId: itemView[index].nomor ?? '',
+                                  alquranName: itemView[index].nama ?? ''));
                         },
                         item: itemView[index],
                       );
                     }),
-                Text('2'),
-                Text('3'),
-                Text('4'),
+                const Text('2'),
+                const Text('3'),
+                const Text('4'),
               ],
             ),
           ),

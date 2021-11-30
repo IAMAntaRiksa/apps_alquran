@@ -1,6 +1,4 @@
 import 'package:alquran/bloc/home_bloc.dart';
-import 'package:alquran/data/model/quran_surah_response.dart';
-import 'package:alquran/data/network/api_client_response.dart';
 import 'package:alquran/ui/home/componets/home_vertical_item_view.dart';
 import 'package:alquran/values/assets.dart';
 import 'package:alquran/values/style.dart';
@@ -39,7 +37,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             ],
           );
         } else if (state is GetHomeLoaded) {
-          return HomeLoded(state);
+          return homeLoded(state);
         }
 
         return const Center(child: CircularProgressIndicator());
@@ -47,7 +45,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     );
   }
 
-  ListView HomeLoded(GetHomeLoaded state) {
+  ListView homeLoded(GetHomeLoaded state) {
     return ListView(
       children: [
         Container(

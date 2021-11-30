@@ -8,4 +8,5 @@ const String iconalquran1 = imagePATH + 'alquran1.svg';
 const String iconelive = imagePATH + 'Ellipse.svg';
 
 const String imageLogo = imagePATH + 'Splash.png';
+const String imageDetail = imagePATH + 'detail.png';
 const String imageLog = imagePATH + 'alquran.png';
