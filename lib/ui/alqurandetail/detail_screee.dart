@@ -1,7 +1,7 @@
-import 'package:alquran/ui/alqurandetail/detail_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'package:alquran/ui/alqurandetail/detail_body.dart';
 import 'package:alquran/values/assets.dart';
 import 'package:alquran/values/colors.dart';
 import 'package:alquran/values/style.dart';
@@ -9,6 +9,7 @@ import 'package:alquran/values/style.dart';
 class ArgumentsDetail {
   final String alquranId;
   final String alquranName;
+
   ArgumentsDetail({
     required this.alquranId,
     required this.alquranName,
