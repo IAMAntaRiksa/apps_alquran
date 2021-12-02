@@ -35,15 +35,16 @@ class ApiClientResponse {
     return dataHasil;
   }
 
-  Future<List<Ayat>?>? fetchDetailData(String id,
-      {int? surat = 1, int? ayatSurah = 1}) async {
-    Ayat? dataHasils;
+  Future<Ayat?> fetchDetailData(String id,
+      {int? surat = 2, int? ayatSurah = 2}) async {
+    Ayat? ayat;
     try {
       Response response =
           await _dio.get('/quran/format/json/surat/$surat/ayat/$ayatSurah');
 
-      Ayat ayat = Ayat.fromJson(response.data);
-      dataHasils = ayat;
+      Ayat detailAyat = Ayat.fromJson(response.data);
+
+      ayat = detailAyat;
     } on DioError catch (e) {
       if (e.response != null) {
         print(
@@ -52,6 +53,6 @@ class ApiClientResponse {
         print('Something went wrong: ${e.message}');
       }
     }
-    dataHasils;
+    return ayat;
   }
 }
