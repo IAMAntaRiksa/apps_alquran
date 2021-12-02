@@ -7,6 +7,11 @@ const String iconNO = imagePATH + 'no.svg';
 const String iconalquran1 = imagePATH + 'alquran1.svg';
 const String iconelive = imagePATH + 'Ellipse.svg';
 
+const String iconSave = imagePATH + 'save.svg';
+const String iconShare = imagePATH + 'share.svg';
+const String iconPlay = imagePATH + 'play.svg';
+const String iconRecht = imagePATH + 'Rectangle.svg';
+
 const String imageLogo = imagePATH + 'Splash.png';
 const String imageDetail = imagePATH + 'detail.png';
 const String imageLog = imagePATH + 'alquran.png';
