@@ -6,10 +6,10 @@ A new Flutter project.
 ## Getting Started
 
 
-Teknologi Bloc,Dio,json_serializable,
+Teknologi Bloc,Dio,json_serializable,flutter_svg,equatable
 
 
-API : https://fathimah.docs.apiary.io/
+API : https://api.quran.sutanlab.id/
 
 
 
