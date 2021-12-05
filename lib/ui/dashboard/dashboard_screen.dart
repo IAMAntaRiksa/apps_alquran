@@ -1,4 +1,4 @@
-import 'package:alquran/ui/home/home_screen.dart';
+import 'package:alquran/ui/home/alquran/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatefulWidget {

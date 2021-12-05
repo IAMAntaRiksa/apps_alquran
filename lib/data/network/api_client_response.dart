@@ -1,9 +1,8 @@
-import 'package:alquran/data/model/alquranDetailModel/ayat.dart';
-import 'package:alquran/data/model/list_response.dart';
-import 'package:alquran/data/model/quran_surah_response.dart';
+import 'package:alquran/data/model/alquran.dart';
+import 'package:alquran/data/model/ayat_detail.dart';
 import 'package:dio/dio.dart';
 
-const String baseURL = 'https://api.banghasan.com';
+const String baseURL = 'https://api.quran.sutanlab.id';
 
 class ApiClientResponse {
   final Dio _dio = Dio(BaseOptions(
@@ -12,47 +11,60 @@ class ApiClientResponse {
     sendTimeout: 30000,
   ));
 
-  Future<List<QuranSurahResponse>?> fetchData() async {
-    List<QuranSurahResponse>? dataHasil;
+  Future<AlquranModel?> fetchData() async {
+    AlquranModel? dataHasil;
     try {
-      Response response = await _dio.get('/quran/format/json/surat');
+      Response response = await _dio.get('/surah');
 
-      ListResponse<QuranSurahResponse> data =
-          ListResponse<QuranSurahResponse>.fromJson(
-              response.data,
-              (json) =>
-                  QuranSurahResponse.fromJson(json as Map<String, dynamic>));
+      AlquranModel alquranList = AlquranModel.fromJson(response.data);
 
-      dataHasil = data.hasil;
+      dataHasil = alquranList;
     } on DioError catch (e) {
       if (e.response != null) {
-        print(
-            'Error(fetchData): ${e.response!.statusCode} - ${e.response!.data}');
+        throw ('Error(fetchData): ${e.response!.statusCode} - ${e.response!.data}');
       } else {
-        print('Something went wrong: ${e.message}');
+        throw ('Something went wrong: ${e.message}');
       }
     }
     return dataHasil;
   }
 
-  Future<Ayat?> fetchDetailData(String id,
-      {int? surat = 2, int? ayatSurah = 2}) async {
-    Ayat? ayat;
+  Future<AyatDetailSurah?> fetchDataDetail({int? idSurah}) async {
+    AyatDetailSurah? ayatDetail;
     try {
-      Response response =
-          await _dio.get('/quran/format/json/surat/$surat/ayat/$ayatSurah');
+      Response response = await _dio.get('/surah/$idSurah');
 
-      Ayat detailAyat = Ayat.fromJson(response.data);
+      AyatDetailSurah alquranList = AyatDetailSurah.fromJson(response.data);
 
-      ayat = detailAyat;
+      ayatDetail = alquranList;
     } on DioError catch (e) {
       if (e.response != null) {
-        print(
-            'Error(fetchData): ${e.response!.statusCode} - ${e.response!.data}');
+        throw ('Error(fetchData): ${e.response!.statusCode} - ${e.response!.data}');
       } else {
-        print('Something went wrong: ${e.message}');
+        throw ('Something went wrong: ${e.message}');
       }
     }
-    return ayat;
+    return ayatDetail;
   }
+
+  // Future<Ayat?> fetchDetailData(String id,
+  //     {int? surat = 2, int? ayatSurah = 2}) async {
+  //   Ayat? ayat;
+  //   try {
+  //     Response response =
+  //         await _dio.get('/quran/format/json/surat/$surat/ayat/$ayatSurah');
+
+  //     Ayat detailAyat = Ayat.fromJson(response.data);
+
+  //     ayat = detailAyat;
+  //   } on DioError catch (e) {
+  //     if (e.response != null) {
+  //       print(
+  //           'Error(fetchData): ${e.response!.statusCode} - ${e.response!.data}');
+  //     } else {
+  //       print('Something went wrong: ${e.message}');
+  //     }
+  //   }
+  //   return ayat;
+  // }
 }
