@@ -22,6 +22,8 @@ Design : https://www.figma.com/file/zm7ZSdbNxoDp1LbdBZV8F4/Quran-App-Concept---F
 <img src="https://user-images.githubusercontent.com/32923555/144347817-576147a9-27b4-4de1-bdfb-9741e612a37d.png" width="270" height="500"/> 
 
 
+<img src="https://user-images.githubusercontent.com/32923555/144741215-369abd66-e73c-44fb-9ed0-a5c001d6beac.png" width="270" height="500"/> 
+
 
 
 
