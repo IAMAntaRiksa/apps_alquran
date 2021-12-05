@@ -46,25 +46,4 @@ class ApiClientResponse {
     }
     return ayatDetail;
   }
-
-  // Future<Ayat?> fetchDetailData(String id,
-  //     {int? surat = 2, int? ayatSurah = 2}) async {
-  //   Ayat? ayat;
-  //   try {
-  //     Response response =
-  //         await _dio.get('/quran/format/json/surat/$surat/ayat/$ayatSurah');
-
-  //     Ayat detailAyat = Ayat.fromJson(response.data);
-
-  //     ayat = detailAyat;
-  //   } on DioError catch (e) {
-  //     if (e.response != null) {
-  //       print(
-  //           'Error(fetchData): ${e.response!.statusCode} - ${e.response!.data}');
-  //     } else {
-  //       print('Something went wrong: ${e.message}');
-  //     }
-  //   }
-  //   return ayat;
-  // }
 }
