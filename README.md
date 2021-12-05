@@ -2,7 +2,29 @@
 
 A new Flutter project.
 
+
 ## Getting Started
+
+
+Teknologi Bloc,Dio,json_serializable,
+
+
+API : https://fathimah.docs.apiary.io/
+
+
+
+
+Design : https://www.figma.com/file/zm7ZSdbNxoDp1LbdBZV8F4/Quran-App-Concept---Free-(Community)?node-id=75%3A753
+
+
+
+
+<img src="https://user-images.githubusercontent.com/32923555/144347817-576147a9-27b4-4de1-bdfb-9741e612a37d.png" width="270" height="500"/> 
+
+
+
+
+
 
 This project is a starting point for a Flutter application.
 
