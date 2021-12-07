@@ -1,29 +1,34 @@
 import 'dart:async';
-import 'package:alquran/bloc/alquran_bloc.dart';
-import 'package:alquran/ui/home/surah/surah_detail_screen.dart';
-import 'package:alquran/values/assets.dart';
-import 'package:alquran/values/colors.dart';
-import 'package:alquran/values/style.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'package:alquran/bloc/alquran_bloc.dart';
+import 'package:alquran/ui/home/surah/surah_detail_screen.dart';
+import 'package:alquran/values/assets.dart';
+import 'package:alquran/values/style.dart';
+
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+
+  final TabController controller;
 
   @override
   State<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+class _HomeState extends State<Home> {
   // Refresh
   final Completer _refreshCompleter = Completer();
-  late TabController _tabController;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+
     context.read<AlquranBloc>().add(GetAlQuranEvent());
   }
 
@@ -52,35 +57,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           );
         } else if (state is AlquranLoadedSuccess) {
           return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    TabBar(
-                      controller: _tabController,
-                      isScrollable: true,
-                      labelColor: colorsBlue,
-                      unselectedLabelColor: colorsBluegrey,
-                      labelPadding: const EdgeInsets.only(left: 20, right: 20),
-                      tabs: [
-                        Text('Surah', style: textTitle3),
-                        Text('Para', style: textTitle3),
-                        Text('Pages', style: textTitle3),
-                        Text('Hijb', style: textTitle3),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 10),
-              SizedBox(
-                height: 470,
+              Expanded(
                 child: TabBarView(
-                  controller: _tabController,
+                  controller: widget.controller,
                   children: [
                     RefreshIndicator(
                       onRefresh: () {
@@ -88,7 +68,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         return _refreshCompleter.future;
                       },
                       child: ListView.builder(
-                        shrinkWrap: true,
                         itemCount: state.alquranModel.data.length,
                         itemBuilder: (context, index) {
                           return GestureDetector(
