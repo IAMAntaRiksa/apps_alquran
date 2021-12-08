@@ -15,3 +15,7 @@ const String iconRecht = imagePATH + 'Rectangle.svg';
 const String imageLogo = imagePATH + 'Splash.png';
 const String imageDetail = imagePATH + 'detail.png';
 const String imageLog = imagePATH + 'alquran.png';
+
+const String buttomNAV = imagePATH + 'mid.png';
+const String buttomNAV1 = imagePATH + 'alquran.jpg';
+const String buttomNAV2 = imagePATH + 'kuba.jpg';

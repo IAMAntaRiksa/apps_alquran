@@ -32,7 +32,7 @@ class AyatDetailSurah {
 @JsonSerializable()
 class Data {
   @JsonKey(name: 'number')
-  int number;
+  int? number;
 
   @JsonKey(name: 'sequence')
   int sequence;
@@ -74,7 +74,7 @@ class Data {
 @JsonSerializable()
 class Name {
   @JsonKey(name: 'short')
-  String short;
+  String? short;
 
   @JsonKey(name: 'long')
   String long;

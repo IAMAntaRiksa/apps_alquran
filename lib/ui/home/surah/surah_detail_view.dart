@@ -66,133 +66,128 @@ class _SurahDetailBodyViewState extends State<SurahDetailBodyView> {
                   .add(GetAlQuranDetailEvent(alquranIdDetail: widget.idSurah));
               return _refreshCompleter.future;
             },
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(24),
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Container(
-                          height: 257,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(35),
-                            image: const DecorationImage(
-                              image: AssetImage(
-                                imageDetail,
-                              ),
-                              fit: BoxFit.cover,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        height: 257,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(35),
+                          image: const DecorationImage(
+                            image: AssetImage(
+                              imageDetail,
                             ),
+                            fit: BoxFit.cover,
                           ),
                         ),
-                        Positioned(
-                          top: 20,
-                          child: Column(
-                            children: [
-                              Text(
-                                  state.surahModel.data.name.transliteration.id,
-                                  style: textTitle),
-                              const SizedBox(height: 10),
-                              Text('The Opening', style: textTitle),
-                              const SizedBox(height: 10),
-                              const Divider(
-                                height: 20,
-                                thickness: 20,
-                                color: Colors.black,
-                              ),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                      '${state.surahModel.data.numberOfVerses}',
-                                      style: textTitle),
-                                  const SizedBox(width: 3),
-                                  SvgPicture.asset(
-                                    iconelive,
-                                    height: 10,
-                                  ),
-                                  const SizedBox(width: 3),
-                                  Text(
-                                      state.surahModel.data.name.transliteration
-                                          .id,
-                                      style: textTitle)
-                                ],
-                              ),
-                              const SizedBox(height: 30),
-                              Text('بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيم',
-                                  style: textTitle),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  // HomeDetailViews(detailView: dataa)
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height,
-                    child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        itemCount: state.surahModel.data.verses.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(24),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
+                      ),
+                      Positioned(
+                        top: 20,
+                        child: Column(
+                          children: [
+                            Text(state.surahModel.data.name.transliteration.id,
+                                style: textTitle),
+                            const SizedBox(height: 10),
+                            Text('The Opening', style: textTitle),
+                            const SizedBox(height: 10),
+                            const Divider(
+                              height: 20,
+                              thickness: 20,
+                              color: Colors.black,
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Stack(
-                                      alignment: Alignment.center,
-                                      children: [
-                                        IconButton(
-                                          onPressed: () {},
-                                          icon: SvgPicture.asset(iconRecht),
-                                        ),
-                                        Positioned(
-                                          child: Text(
-                                              '${state.surahModel.data.verses[index].number.inSurah}',
-                                              style: const TextStyle(
-                                                  color: Colors.white)),
-                                        )
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        IconButton(
-                                            onPressed: () {},
-                                            icon: SvgPicture.asset(iconShare)),
-                                        IconButton(
-                                            onPressed: () {},
-                                            icon: SvgPicture.asset(iconPlay)),
-                                        IconButton(
-                                            onPressed: () {},
-                                            icon: SvgPicture.asset(iconSave)),
-                                      ],
-                                    )
-                                  ],
+                                Text('${state.surahModel.data.numberOfVerses}',
+                                    style: textTitle),
+                                const SizedBox(width: 3),
+                                SvgPicture.asset(
+                                  iconelive,
+                                  height: 10,
                                 ),
-                                const SizedBox(height: 25),
+                                const SizedBox(width: 3),
                                 Text(
-                                  state.surahModel.data.verses[index].text.arab,
-                                  style: titleAss,
-                                ),
-                                const SizedBox(height: 25),
-                                Text(
-                                  state.surahModel.data.verses[index]
-                                      .translation.id,
-                                )
+                                    state.surahModel.data.name.transliteration
+                                        .id,
+                                    style: textTitle)
                               ],
                             ),
-                          );
-                        }),
+                            const SizedBox(height: 30),
+                            Text('بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيم',
+                                style: textTitle),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                // HomeDetailViews(detailView: dataa)
+                Expanded(
+                  child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      itemCount: state.surahModel.data.verses.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(24),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      IconButton(
+                                        onPressed: () {},
+                                        icon: SvgPicture.asset(iconRecht),
+                                      ),
+                                      Positioned(
+                                        child: Text(
+                                            '${state.surahModel.data.verses[index].number.inSurah}',
+                                            style: const TextStyle(
+                                                color: Colors.white)),
+                                      )
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      IconButton(
+                                          onPressed: () {},
+                                          icon: SvgPicture.asset(iconShare)),
+                                      IconButton(
+                                          onPressed: () {},
+                                          icon: SvgPicture.asset(iconPlay)),
+                                      IconButton(
+                                          onPressed: () {},
+                                          icon: SvgPicture.asset(iconSave)),
+                                    ],
+                                  )
+                                ],
+                              ),
+                              const SizedBox(height: 25),
+                              Text(
+                                state.surahModel.data.verses[index].text.arab,
+                                style: titleAss,
+                              ),
+                              const SizedBox(height: 25),
+                              Text(
+                                state.surahModel.data.verses[index].translation
+                                    .id,
+                              )
+                            ],
+                          ),
+                        );
+                      }),
+                ),
+              ],
             ),
           );
         }

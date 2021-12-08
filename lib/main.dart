@@ -1,3 +1,4 @@
+import 'package:alquran/data/storage/hive.dart';
 import 'package:alquran/routes/routes.dart';
 import 'package:alquran/values/colors.dart';
 import 'package:flutter/material.dart';
@@ -5,8 +6,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'bloc/alquran_bloc.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
+
+  await HiveDB().initHiveDatabase();
 }
 
 class MyApp extends StatelessWidget {

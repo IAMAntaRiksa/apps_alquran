@@ -7,8 +7,8 @@ const String baseURL = 'https://api.quran.sutanlab.id';
 class ApiClientResponse {
   final Dio _dio = Dio(BaseOptions(
     baseUrl: baseURL,
-    connectTimeout: 30000,
-    sendTimeout: 30000,
+    connectTimeout: 10000,
+    sendTimeout: 10000,
   ));
 
   Future<AlquranModel?> fetchData() async {

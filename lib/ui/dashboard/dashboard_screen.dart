@@ -1,5 +1,6 @@
 import 'package:alquran/ui/home/alquran/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -43,8 +44,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
   List<BottomNavigationBarItem> _mainMenuItems() {
     return <BottomNavigationBarItem>[
       _mainMenuItemWidget('Home', Icons.home),
-      _mainMenuItemWidget('Mid', Icons.school),
-      _mainMenuItemWidget('Faforite', Icons.more_horiz),
+      _mainMenuItemWidget('Mid', Icons.ac_unit_rounded),
+      _mainMenuItemWidget('Faforite', Icons.favorite),
     ];
   }
 
