@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'ayat_detail.g.dart';
 
 @JsonSerializable()
-class AyatDetailSurah {
+class AlquranDetail {
   @JsonKey(name: 'code')
   int code;
 
@@ -16,17 +16,16 @@ class AyatDetailSurah {
   @JsonKey(name: 'data')
   Data data;
 
-  AyatDetailSurah({
-    required this.code,
-    required this.status,
-    required this.message,
-    required this.data,
-  });
+  AlquranDetail(
+      {required this.code,
+      required this.status,
+      required this.message,
+      required this.data});
 
-  factory AyatDetailSurah.fromJson(Map<String, dynamic> json) =>
-      _$AyatDetailSurahFromJson(json);
+  factory AlquranDetail.fromJson(Map<String, dynamic> json) =>
+      _$AlquranDetailFromJson(json);
 
-  Map<String, dynamic> toJson() => _$AyatDetailSurahToJson(this);
+  Map<String, dynamic> toJson() => _$AlquranDetailToJson(this);
 }
 
 @JsonSerializable()

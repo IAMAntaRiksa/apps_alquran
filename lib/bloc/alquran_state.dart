@@ -62,7 +62,7 @@ class AlquranInitial extends AlquranState {}
 class AlquranLoadedLoading extends AlquranState {}
 
 class AlquranLoadedSuccess extends AlquranState {
-  final AlquranModel alquranModel;
+  final Alquran alquranModel;
   const AlquranLoadedSuccess({
     required this.alquranModel,
   });
@@ -80,7 +80,7 @@ class AlquranLoadedError extends AlquranState {
 class AlquranDetailLoadedLoading extends AlquranState {}
 
 class AlquranDetailLoadedSuccess extends AlquranState {
-  final AyatDetailSurah surahModel;
+  final AlquranDetail surahModel;
 
   const AlquranDetailLoadedSuccess({
     required this.surahModel,

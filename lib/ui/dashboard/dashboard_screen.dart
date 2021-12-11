@@ -1,6 +1,6 @@
 import 'package:alquran/ui/home/alquran/home_screen.dart';
+import 'package:alquran/ui/home/favorite/favorite.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   final List<Widget> _dashboardBodyWidgets = <Widget>[
     const HomeScreenWidget(),
     const Placeholder(color: Colors.black),
-    const Placeholder(color: Colors.blue),
+    const FavoriteScreen(),
     const Placeholder(color: Colors.green),
   ];
 

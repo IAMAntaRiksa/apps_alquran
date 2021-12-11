@@ -1,15 +1,24 @@
-import 'package:alquran/data/model/ayat_detail.dart';
+import 'package:alquran/data/model/ayatDetail/ayat_detail.dart';
+import 'package:hive/hive.dart';
 
-class SurahItem {
+part 'surah_item.g.dart';
+
+@HiveType(typeId: 1)
+class ModelAlquranDetail {
+  @HiveField(0)
   final int number;
-  final String name;
-  SurahItem({
+
+  @HiveField(1)
+  final String? name;
+
+  ModelAlquranDetail({
     required this.number,
     required this.name,
   });
 
-  factory SurahItem.fromData(Data dataResponse) {
-    return SurahItem(
-        number: dataResponse.number ?? 0, name: dataResponse.name.short ?? '');
+  factory ModelAlquranDetail.fromData(AlquranDetail dataResponse) {
+    return ModelAlquranDetail(
+        number: dataResponse.data.number ?? 0,
+        name: dataResponse.data.name.short ?? '');
   }
 }

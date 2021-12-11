@@ -1,7 +1,6 @@
 import 'dart:async';
-
-import 'package:alquran/data/model/alquran.dart';
-import 'package:alquran/data/model/ayat_detail.dart';
+import 'package:alquran/data/model/alquran/alquran.dart';
+import 'package:alquran/data/model/ayatDetail/ayat_detail.dart';
 import 'package:alquran/data/network/api_client_response.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -34,7 +33,7 @@ class AlquranBloc extends Bloc<AlquranEvent, AlquranState> {
       GetAlQuranDetailEvent event, Emitter<AlquranState> emit) async {
     emit(AlquranDetailLoadedLoading());
     try {
-      AyatDetailSurah? surahDetail = await _apiClientResponse.fetchDataDetail(
+      AlquranDetail? surahDetail = await _apiClientResponse.fetchDataDetail(
           idSurah: event.alquranIdDetail);
       emit(AlquranDetailLoadedSuccess(surahModel: surahDetail!));
     } catch (e) {

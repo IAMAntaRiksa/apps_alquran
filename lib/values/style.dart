@@ -55,3 +55,10 @@ TextStyle textTitle3 = const TextStyle(
   fontFamily: 'Poppins',
   fontWeight: FontWeight.bold,
 );
+
+TextStyle titleAccountarb = const TextStyle(
+  color: colorsBlueDark,
+  fontSize: 22,
+  fontFamily: 'Poppins',
+  fontWeight: FontWeight.w600,
+);

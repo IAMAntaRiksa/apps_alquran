@@ -6,15 +6,15 @@ part of 'ayat_detail.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AyatDetailSurah _$AyatDetailSurahFromJson(Map<String, dynamic> json) =>
-    AyatDetailSurah(
+AlquranDetail _$AlquranDetailFromJson(Map<String, dynamic> json) =>
+    AlquranDetail(
       code: json['code'] as int,
       status: json['status'] as String,
       message: json['message'] as String,
       data: Data.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$AyatDetailSurahToJson(AyatDetailSurah instance) =>
+Map<String, dynamic> _$AlquranDetailToJson(AlquranDetail instance) =>
     <String, dynamic>{
       'code': instance.code,
       'status': instance.status,
@@ -23,7 +23,7 @@ Map<String, dynamic> _$AyatDetailSurahToJson(AyatDetailSurah instance) =>
     };
 
 Data _$DataFromJson(Map<String, dynamic> json) => Data(
-      number: json['number'] as int,
+      number: json['number'] as int?,
       sequence: json['sequence'] as int,
       numberOfVerses: json['numberOfVerses'] as int,
       name: Name.fromJson(json['name'] as Map<String, dynamic>),
@@ -48,7 +48,7 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
     };
 
 Name _$NameFromJson(Map<String, dynamic> json) => Name(
-      short: json['short'] as String,
+      short: json['short'] as String?,
       long: json['long'] as String,
       transliteration:
           Translation.fromJson(json['transliteration'] as Map<String, dynamic>),

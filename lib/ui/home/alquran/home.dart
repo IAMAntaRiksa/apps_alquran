@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:alquran/bloc/alquran_bloc.dart';
+import 'package:alquran/ui/home/surah/detail.page.dart';
 import 'package:alquran/ui/home/surah/surah_detail_screen.dart';
 import 'package:alquran/values/assets.dart';
 import 'package:alquran/values/style.dart';
@@ -16,7 +17,6 @@ class Home extends StatefulWidget {
   }) : super(key: key);
 
   final TabController controller;
-
   @override
   State<Home> createState() => _HomeState();
 }
@@ -24,7 +24,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   // Refresh
   final Completer _refreshCompleter = Completer();
-
   @override
   void initState() {
     super.initState();
@@ -75,9 +74,8 @@ class _HomeState extends State<Home> {
                                 context,
                                 SurahDetaiScreen.routeName,
                                 arguments: ArgumentsDetail(
-                                  alquranId: state
-                                      .alquranModel.data[index].number
-                                      .toInt(),
+                                  alquranId:
+                                      state.alquranModel.data[index].number,
                                   alquranName: state.alquranModel.data[index]
                                       .name.transliteration.id,
                                 ),

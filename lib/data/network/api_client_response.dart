@@ -1,5 +1,5 @@
-import 'package:alquran/data/model/alquran.dart';
-import 'package:alquran/data/model/ayat_detail.dart';
+import 'package:alquran/data/model/alquran/alquran.dart';
+import 'package:alquran/data/model/ayatDetail/ayat_detail.dart';
 import 'package:dio/dio.dart';
 
 const String baseURL = 'https://api.quran.sutanlab.id';
@@ -11,12 +11,12 @@ class ApiClientResponse {
     sendTimeout: 10000,
   ));
 
-  Future<AlquranModel?> fetchData() async {
-    AlquranModel? dataHasil;
+  Future<Alquran?> fetchData() async {
+    Alquran? dataHasil;
     try {
       Response response = await _dio.get('/surah');
 
-      AlquranModel alquranList = AlquranModel.fromJson(response.data);
+      Alquran alquranList = Alquran.fromJson(response.data);
 
       dataHasil = alquranList;
     } on DioError catch (e) {
@@ -29,12 +29,12 @@ class ApiClientResponse {
     return dataHasil;
   }
 
-  Future<AyatDetailSurah?> fetchDataDetail({int? idSurah}) async {
-    AyatDetailSurah? ayatDetail;
+  Future<AlquranDetail?> fetchDataDetail({int? idSurah}) async {
+    AlquranDetail? ayatDetail;
     try {
       Response response = await _dio.get('/surah/$idSurah');
 
-      AyatDetailSurah alquranList = AyatDetailSurah.fromJson(response.data);
+      AlquranDetail alquranList = AlquranDetail.fromJson(response.data);
 
       ayatDetail = alquranList;
     } on DioError catch (e) {

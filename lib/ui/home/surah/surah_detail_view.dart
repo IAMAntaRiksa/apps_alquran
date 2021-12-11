@@ -1,18 +1,24 @@
 import 'dart:async';
 
-import 'package:alquran/values/assets.dart';
-import 'package:alquran/values/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:alquran/bloc/alquran_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+
+import 'package:alquran/bloc/alquran_bloc.dart';
+import 'package:alquran/values/assets.dart';
+import 'package:alquran/values/style.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SurahDetailBodyView extends StatefulWidget {
   const SurahDetailBodyView({
     Key? key,
+    this.isOnPres = true,
     required this.idSurah,
     required this.nameSurah,
   }) : super(key: key);
+
+  /// icon bookmark
+  final bool isOnPres;
   final int idSurah;
   final String nameSurah;
   @override
@@ -22,11 +28,9 @@ class SurahDetailBodyView extends StatefulWidget {
 class _SurahDetailBodyViewState extends State<SurahDetailBodyView> {
   // Refresh
   final Completer _refreshCompleter = Completer();
+
   @override
   void initState() {
-    // BlocProvider.of<AlquranBloc>(context)
-    //     .add(GetAlQuranDetailEvent(alquranIdDetail: widget.idSurah));
-
     context
         .read<AlquranBloc>()
         .add(GetAlQuranDetailEvent(alquranIdDetail: widget.idSurah));
@@ -161,13 +165,17 @@ class _SurahDetailBodyViewState extends State<SurahDetailBodyView> {
                                     children: [
                                       IconButton(
                                           onPressed: () {},
-                                          icon: SvgPicture.asset(iconShare)),
+                                          icon: const FaIcon(
+                                              FontAwesomeIcons.shareAltSquare)),
                                       IconButton(
                                           onPressed: () {},
-                                          icon: SvgPicture.asset(iconPlay)),
+                                          icon: const FaIcon(FontAwesomeIcons
+                                              .solidPlayCircle)),
                                       IconButton(
                                           onPressed: () {},
-                                          icon: SvgPicture.asset(iconSave)),
+                                          icon: FaIcon(widget.isOnPres
+                                              ? FontAwesomeIcons.solidBookmark
+                                              : FontAwesomeIcons.bookmark)),
                                     ],
                                   )
                                 ],
@@ -175,7 +183,7 @@ class _SurahDetailBodyViewState extends State<SurahDetailBodyView> {
                               const SizedBox(height: 25),
                               Text(
                                 state.surahModel.data.verses[index].text.arab,
-                                style: titleAss,
+                                style: titleAccountarb,
                               ),
                               const SizedBox(height: 25),
                               Text(

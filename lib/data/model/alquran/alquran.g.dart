@@ -6,7 +6,7 @@ part of 'alquran.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AlquranModel _$AlquranModelFromJson(Map<String, dynamic> json) => AlquranModel(
+Alquran _$AlquranFromJson(Map<String, dynamic> json) => Alquran(
       code: json['code'] as int,
       status: json['status'] as String,
       message: json['message'] as String,
@@ -15,8 +15,7 @@ AlquranModel _$AlquranModelFromJson(Map<String, dynamic> json) => AlquranModel(
           .toList(),
     );
 
-Map<String, dynamic> _$AlquranModelToJson(AlquranModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$AlquranToJson(Alquran instance) => <String, dynamic>{
       'code': instance.code,
       'status': instance.status,
       'message': instance.message,
